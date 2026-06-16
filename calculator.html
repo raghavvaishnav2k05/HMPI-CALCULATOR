@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heavy Metal Pollution Index (HPI) Calculator - Dark Theme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: #e2e8f0;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 100%);
+        }
+        
+        .card-dark {
+            background: #2d3748;
+            border: 1px solid #4a5568;
+        }
+        
+        .input-dark {
+            background: #4a5568;
+            border: 1px solid #718096;
+            color: #e2e8f0;
+        }
+        
+        .input-dark:focus {
+            border-color: #63b3ed;
+            ring-color: #63b3ed;
+        }
+        
+        .pollution-low { background-color: #22543d; }
+        .pollution-moderate { background-color: #744210; }
+        .pollution-high { background-color: #742a2a; }
+        .pollution-severe { background-color: #553c9a; }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .result-animation {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .progress-bar {
+            transition: width 1s ease-in-out;
+        }
+        
+        .chart-container {
+            background: #2d3748;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Heavy Metal Pollution Index</h1>
+            <p class="text-xl opacity-90">Calculate HPI for Water Quality Assessment in Indian Cities</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Calculator Form -->
+            <div class="card-dark rounded-xl shadow-lg p-6 card-hover">
+                <h2 class="text-2xl font-semibold text-gray-200 mb-6">
+                    <i class="fas fa-flask mr-2 text-blue-400"></i>HPI Calculator
+                </h2>
+                
+                <!-- Location Section -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-300 mb-2">
+                        <i class="fas fa-map-marker-alt mr-2 text-red-400"></i>Select Indian City
+                    </label>
+                    <select id="citySelect" class="input-dark w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-400">
+                        <option value="">Choose a city...</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="bangalore">Bangalore</option>
+                        <option value="kolkata">Kolkata</option>
+                        <option value="hyderabad">Hyderabad</option>
+                        <option value="ahmedabad">Ahmedabad</option>
+                        <option value="pune">Pune</option>
+                        <option value="jaipur">Jaipur</option>
+                        <option value="lucknow">Lucknow</option>
+                        <option value="indore">Indore</option>
+                    </select>
+                </div>
+
+                <!-- Heavy Metal Parameters -->
+                <div class="space-y-4 mb-6">
+                    <h3 class="font-semibold text-gray-300 mb-3">
+                        <i class="fas fa-vial mr-2 text-purple-400"></i>Heavy Metal Concentrations (mg/L)
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Lead (Pb)</label>
+                            <input type="number" id="lead" step="0.001" placeholder="0.01" class="input-dark w-full px-3 py-2 rounded-lg">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Cadmium (Cd)</label>
+                            <input type="number" id="cadmium" step="0.001" placeholder="0.003" class="input-dark w-full px-3 py-2 rounded-lg">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Chromium (Cr)</label>
+                            <input type="number" id="chromium" step="0.001" placeholder="0.05" class="input-dark w-full px-3 py-2 rounded-lg">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Mercury (Hg)</label>
+                            <input type="number" id="mercury" step="0.001" placeholder="0.001" class="input-dark w-full px-3 py-2 rounded-lg">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Arsenic (As)</label>
+                            <input type="number" id="arsenic" step="0.001" placeholder="0.01" class="input-dark w-full px-3 py-2 rounded-lg">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Nickel (Ni)</label>
+                            <input type="number" id="nickel" step="0.001" placeholder="0.02" class="input-dark w-full px-3 py-2 rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auto-fill City Data Button -->
+                <button onclick="fillCityData()" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg mb-4 font-semibold">
+                    <i class="fas fa-map-pin mr-2"></i>Auto-fill City Data
+                </button>
+
+                <!-- Calculate Button -->
+                <button onclick="calculateHPI()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold">
+                    <i class="fas fa-calculator mr-2"></i>Calculate HPI
+                </button>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="card-dark rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-gray-200 mb-6">HPI Results & Analysis</h2>
+                
+                <div id="resultsContainer" class="text-center py-8">
+                    <div class="text-gray-500 mb-4">
+                        <i class="fas fa-chart-bar text-5xl"></i>
+                    </div>
+                    <p class="text-gray-400">Enter metal concentrations and calculate to see HPI results</p>
+                </div>
+
+                <!-- Graph Visualization -->
+                <div class="mt-6">
+                    <h3 class="font-semibold text-gray-300 mb-4">
+                        <i class="fas fa-chart-line mr-2 text-blue-400"></i>HPI Comparison
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="hpiChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+         
+
+                <!-- Pollution Status -->
+                <div id="pollutionStatus" class="mt-6 p-4 rounded-lg hidden">
+                    <h4 class="font-semibold mb-2">Pollution Status</h4>
+                    <div class="text-sm" id="statusText"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- City Pollution Data -->
+        <div class="mt-12 card-dark rounded-xl shadow-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-200 mb-6">
+                <i class="fas fa-database mr-2 text-green-400"></i>City Pollution Profiles
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <h4 class="font-semibold text-blue-300">Delhi</h4>
+                    <p class="text-sm text-gray-300">High industrial pollution, elevated Pb and Cr levels</p>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <h4 class="font-semibold text-blue-300">Mumbai</h4>
+                    <p class="text-sm text-gray-300">Coastal pollution, moderate Hg and Cd levels</p>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <h4 class="font-semibold text-blue-300">Chennai</h4>
+                    <p class="text-sm text-gray-300">Industrial and coastal pollution mix</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2024 Heavy Metal Pollution Index Calculator</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-blue-400"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script .js"></script>
+</body>
+</html>

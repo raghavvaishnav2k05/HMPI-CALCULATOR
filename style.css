@@ -1,0 +1,96 @@
+/*css for calculator*/
+        @keyframes mapPulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        
+        .water-contamination {
+            background: linear-gradient(45deg, #3b82f6, #06b6d4, #10b981, #f59e0b, #ef4444);
+            background-size: 400% 400%;
+            animation: contaminationFlow 12s ease-in-out infinite;
+        }
+        
+        @keyframes contaminationFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+         .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .result-gauge {
+            transition: all 1s ease-in-out;
+        }
+        .metal-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+/*css for landing page*/
+        body {
+            background-color: #111827;
+            color: #f3f4f6;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+        .pollution-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(145deg, #1f2937, #374151);
+            border: 1px solid #374151;
+        }
+        .pollution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(145deg, #374151, #4b5563);
+        }
+        .dynamic-image {
+            transition: all 0.5s ease;
+            filter: brightness(0.8);
+            border: 2px solid #374151;
+        }
+        .dynamic-image:hover {
+            filter: brightness(1) contrast(1.1);
+            transform: scale(1.02);
+            border-color: #60a5fa;
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #60a5fa, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .nav-glass {
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #374151;
+        }
+        .calculator-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #374151;
+        }
+        .solution-card {
+            background: linear-gradient(145deg, #1f2937, #374151);
+            border: 1px solid #374151;
+            transition: all 0.3s ease;
+        }
+        .solution-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }

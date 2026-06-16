@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HPI Calculator - Heavy Metal Pollution Index</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            50: '#f9fafb',
+                            100: '#f3f4f6',
+                            200: '#e5e7eb',
+                            300: '#d1d5db',
+                            400: '#9ca3af',
+                            500: '#6b7280',
+                            600: '#4b5563',
+                            700: '#374151',
+                            800: '#1f2937',
+                            900: '#111827',
+                            950: '#030712'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="nav-glass fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-flask text-blue-400 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl text-white">HPI Calculator</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors">About</a>
+                    <a href="#effects" class="text-gray-300 hover:text-blue-400 transition-colors">Effects</a>
+                    <a href="#calculator" class="text-gray-300 hover:text-blue-400 transition-colors">Calculator</a>
+                    <a href="#solutions" class="text-gray-300 hover:text-blue-400 transition-colors">Solutions</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white pt-24 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl font-bold mb-6 text-white">Heavy Metal Pollution Index Calculator</h1>
+                    <p class="text-xl mb-8 text-gray-300">Monitor and analyze heavy metal contamination levels in water sources with our advanced HPI calculation tool. Protect ecosystems and human health through precise pollution assessment.</p>
+                    <div class="flex space-x-4">
+                        <a href="http://127.0.0.1:5500/calculator.html" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-colors text-white">
+                            Calculate HPI
+                        </a>
+                        <button class="border-2 border-blue-600 text-blue-400 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/723085d4-0ce2-4fea-8ff5-0775bbc9a586.png" alt="Scientific visualization of heavy metal particles in water with color-coded contamination levels showing red hotspots and blue clean zones on dark background" class="rounded-xl shadow-2xl dynamic-image floating-animation" />
+                    <div class="absolute -bottom-4 -left-4 bg-gray-800 p-4 rounded-lg shadow-lg border border-gray-700">
+                        <div class="text-center">
+                            <div class="stat-number">87%</div>
+                            <p class="text-sm text-gray-400">Water sources affected</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Effects Section -->
+    <section id="effects" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Devastating Effects of Heavy Metal Pollution</h2>
+                <p class="text-xl text-gray-400">Heavy metals pose severe threats to ecosystems, human health, and aquatic life</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Effect Card 1 -->
+                <div class="pollution-card p-6 rounded-xl">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/86becd93-3775-4c33-8493-1b27a0d0f348.png" alt="Bioaccumulation process showing heavy metals moving through aquatic food chain from plankton to fish to humans with dark cinematic lighting" class="rounded-lg w-full h-48 object-cover dynamic-image" />
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Bioaccumulation in Food Chain</h3>
+                    <p class="text-gray-300">Heavy metals accumulate in organisms and magnify through trophic levels, reaching dangerous concentrations in top predators and humans.</p>
+                    <div class="mt-4 flex items-center text-red-400">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="text-sm font-semibold">High Risk Factor</span>
+                    </div>
+                </div>
+
+                <!-- Effect Card 2 -->
+                <div class="pollution-card p-6 rounded-xl">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/87942cad-e353-46fb-976d-2023a6d6bc37.png" alt="Neurological damage illustration showing brain affected by mercury and lead contamination with highlighted neural pathways on dark background" class="rounded-lg w-full h-48 object-cover dynamic-image" />
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Neurological Damage</h3>
+                    <p class="text-gray-300">Metals like mercury and lead cause irreversible neurological damage, cognitive impairment, and developmental issues in children.</p>
+                    <div class="mt-4 flex items-center text-orange-400">
+                        <i class="fas fa-brain mr-2"></i>
+                        <span class="text-sm font-semibold">Critical Impact</span>
+                    </div>
+                </div>
+
+                <!-- Effect Card 3 -->
+                <div class="pollution-card p-6 rounded-xl">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9f97694d-d262-4ec4-a4d6-2d1fd41ae833.png" alt="Aquatic ecosystem collapse showing dead fish and damaged coral reefs due to heavy metal contamination with dramatic lighting" class="rounded-lg w-full h-48 object-cover dynamic-image" />
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Ecosystem Collapse</h3>
+                    <p class="text-gray-300">Aquatic ecosystems suffer biodiversity loss, reproductive failure in species, and complete collapse of sensitive habitats.</p>
+                    <div class="mt-4 flex items-center text-purple-400">
+                        <i class="fas fa-fish mr-2"></i>
+                        <span class="text-sm font-semibold">Ecosystem Threat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Calculator Preview -->
+    <section id="calculator" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 text-white">Interactive HPI Calculator</h2>
+                    <p class="text-xl mb-8 text-gray-300">Our advanced algorithm calculates the Heavy Metal Pollution Index based on multiple parameters including concentration levels of lead, mercury, cadmium, and other toxic metals.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="calculator-bg p-4 rounded-lg">
+                            <div class="text-2xl font-bold text-green-400">0-25</div>
+                            <div class="text-sm text-gray-400">Low Pollution</div>
+                        </div>
+                        <div class="calculator-bg p-4 rounded-lg">
+                            <div class="text-2xl font-bold text-yellow-400">26-50</div>
+                            <div class="text-sm text-gray-400">Medium Pollution</div>
+                        </div>
+                        <div class="calculator-bg p-4 rounded-lg">
+                            <div class="text-2xl font-bold text-orange-400">51-75</div>
+                            <div class="text-sm text-gray-400">High Pollution</div>
+                        </div>
+                        <div class="calculator-bg p-4 rounded-lg">
+                            <div class="text-2xl font-bold text-red-400">76-100</div>
+                            <div class="text-sm text-gray-400">Critical Pollution</div>
+                        </div>
+                    </div>
+
+                    <a href="http://127.0.0.1:5500/calculator.html" target="_blank"   class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-colors text-white">
+                        Try Calculator Now
+                    </a>
+                </div>
+                <div class="relative">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/15dc3f48-1731-425f-a2d5-8e5b4017f2fc.png" alt="Interactive dashboard showing real-time HPI calculation with graphs, meters, and pollution level indicators on dark theme interface" class="rounded-xl shadow-2xl dynamic-image" />
+                    <div class="absolute -top-4 -right-4 bg-blue-600 p-3 rounded-full">
+                        <i class="fas fa-calculator text-white text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="stat-number">2.3M</div>
+                    <p class="text-gray-400">People affected annually</p>
+                </div>
+                <div>
+                    <div class="stat-number">47%</div>
+                    <p class="text-gray-400">Industrial water contaminated</p>
+                </div>
+                <div>
+                    <div class="stat-number">15+</div>
+                    <p class="text-gray-400">Heavy metals monitored</p>
+                </div>
+                <div>
+                    <div class="stat-number">89%</div>
+                    <p class="text-gray-400">Accuracy rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Comprehensive Solutions</h2>
+                <p class="text-xl text-gray-400">Advanced technologies and methods to combat heavy metal pollution</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="solution-card text-center p-6 rounded-xl">
+                    <div class="bg-blue-900 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-filter text-blue-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Advanced Filtration</h3>
+                    <p class="text-gray-300">Multi-stage filtration systems using activated carbon, reverse osmosis, and ion exchange resins.</p>
+                </div>
+                <div class="solution-card text-center p-6 rounded-xl">
+                    <div class="bg-green-900 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-seedling text-green-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Phytoremediation</h3>
+                    <p class="text-gray-300">Using specific plants to absorb and accumulate heavy metals from contaminated soil and water.</p>
+                </div>
+                <div class="solution-card text-center p-6 rounded-xl">
+                    <div class="bg-purple-900 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-purple-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Real-time Monitoring</h3>
+                    <p class="text-gray-300">Continuous monitoring systems with IoT sensors for immediate detection and response.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+            <br>
+            
+             <!-- FAQ Section -->
+    <section id="faq" class="mb-16">
+      <h2 class="text-4xl font-bold mb-8 text-white-400 text-center">Frequently Asked Questions</h2>
+      <div class="max-w-4xl mx-auto space-y-4">
+        <details class="bg-gray-700 rounded-lg p-4 cursor-pointer card-hover">
+          <summary class="font-semibold text-lg text-white-300">What is the Heavy Metal Pollution Index (HPI)?</summary>
+          <p class="mt-2 text-gray-300">HPI is a numerical value that indicates the overall level of heavy metal contamination in water, calculated using concentrations of various metals and their permissible limits.</p>
+        </details>
+        <details class="bg-gray-700 rounded-lg p-4 cursor-pointer card-hover">
+          <summary class="font-semibold text-lg text-white-300">Why is monitoring heavy metals important?</summary>
+          <p class="mt-2 text-gray-300">Heavy metals are toxic pollutants that can accumulate in living organisms, causing serious health and environmental problems. Monitoring helps in early detection and mitigation.</p>
+        </details>
+        <details class="bg-gray-700 rounded-lg p-4 cursor-pointer card-hover">
+          <summary class="font-semibold text-lg text-white-300">How accurate is this calculator?</summary>
+          <p class="mt-2 text-gray-300">The calculator uses standardized formulas and permissible limits from recognized authorities, providing reliable estimates based on input data.</p>
+        </details>
+        <details class="bg-gray-700 rounded-lg p-4 cursor-pointer card-hover">
+          <summary class="font-semibold text-lg text-white-300">Can I use this tool for any water source?</summary>
+          <p class="mt-2 text-gray-300">Yes, as long as you have the concentration data of the heavy metals, you can use this tool to assess pollution levels in groundwater, surface water, or other sources.</p>
+        </details>
+        <details class="bg-gray-700 rounded-lg p-4 cursor-pointer card-hover">
+          <summary class="font-semibold text-lg text-white-300">What should I do if the HPI is high?</summary>
+          <p class="mt-2 text-gray-300">High HPI indicates pollution above safe limits. You should report to local environmental authorities and avoid using contaminated water until treated.</p>
+        </details>
+        <details class="bg-gray-700 rounded-lg p-4 cursor-pointer card-hover">
+          <summary class="font-semibold text-lg text-white-300">Where can I report heavy metal pollution complaints?</summary>
+          <p class="mt-2 text-gray-300">You can contact government environmental agencies via the contact section below for complaints and assistance.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="mb-16 bg-gray-900 rounded-xl p-8 shadow-lg max-w-4xl mx-auto">
+      <h2 class="text-4xl font-bold mb-8 text-white-400 text-center">Contact Government Authorities</h2>
+      <p class="text-center text-gray-300 mb-6">For complaints or reporting heavy metal pollution, please reach out to the following agencies:</p>
+      <div class="grid md:grid-cols-2 gap-8 text-gray-300">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-white-300">Central Pollution Control Board (CPCB)</h3>
+          <p><i class="fas fa-phone-alt mr-2"></i>Phone: <a href="tel:+91-11-43102030" class="text-yellow-400 hover:underline">+91-11-43102030</a></p>
+          <p><i class="fas fa-envelope mr-2"></i>Email: <a href="mailto:info@cpcb.gov.in" class="text-yellow-400 hover:underline">info@cpcb.gov.in</a></p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-white-300">Ministry of Environment, Forest and Climate Change</h3>
+          <p><i class="fas fa-phone-alt mr-2"></i>Phone: <a href="tel:+91011-24695356" class="text-yellow-400 hover:underline">+91 011-24695356</a></p>
+          <p><i class="fas fa-envelope mr-2"></i>Email: <a href="mailto:contact-moefcc@gov.in" class="text-yellow-400 hover:underline">contact-moefcc@gov.in</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">HPI Calculator</h4>
+                    <p class="text-gray-400">Advanced tools for environmental protection and pollution monitoring.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">Home</a></li>
+                        <li><a href="#effects" class="text-gray-400 hover:text-blue-400">Effects</a></li>
+                        <li><a href="#calculator" class="text-gray-400 hover:text-blue-400">Calculator</a></li>
+                        <li><a href="#solutions" class="text-gray-400 hover:text-blue-400">Solutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">Research Papers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">Case Studies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">API Documentation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Contact</h4>
+                    <p class="text-gray-400">info@hpicalculator.com</p>
+                    <p class="text-gray-400">+1 (555) 123-4567</p>
+                </div>
+            </div>
+
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2024 HPI Calculator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for dynamic content
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.dynamic-image');
+            
+            // Add intersection observer for scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            images.forEach(img => {
+                img.style.opacity = '0';
+                img.style.transform = 'translateY(20px)';
+                img.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(img);
+            });
+
+            // Simple hover effect enhancement
+            const cards = document.querySelectorAll('.pollution-card, .solution-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const icon = card.querySelector('i');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.1)';
+                        icon.style.transition = 'transform 0.3s ease';
+                    }
+                });
+                card.addEventListener('mouseleave', () => {
+                    const icon = card.querySelector('i');
+                    if (icon) {
+                        icon.style.transform = 'scale(1)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
